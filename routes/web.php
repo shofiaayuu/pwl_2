@@ -47,4 +47,25 @@ Route::get('/about',[AboutController::class, 'about']);
 
 Route::get('/articles/{id}',[ArticleController::class, 'show']);
 
+//praktikum3
+//nomor1
+Route::get('/home', function(){
+    return "<center><h1> Selamat Datang di Web Education Studio</h1></center>";
+});
+//nomor2
+Route::prefix('product') ->group(function() {
+    Route::get('/list', [PageController::class, 'product']);
+});
+//nomor3
+Route::get('/news/{param}', [PageController::class, 'news']);
+//nomor4
+Route::prefix('program') ->group(function() {
+    Route::get('/list', [PageController::class, 'program']);
+});
+//nomor5
+Route::get('/aboutUs', [PageController::class, 'aboutUs']);
+//nomor6
+Route::resource('contactUs', PageController::class) ->only(['index']);
+
+
 
